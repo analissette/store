@@ -9,12 +9,16 @@ import java.util.List;
 
 @RestController
 public class ProductController {
-        @GetMapping("/health")
-        public String Check() {
-            return "hello! I'm a server";
-        }
         public List<Product> products = new ArrayList<>();
+
         @GetMapping("/products")
-        public List
+        public List<Product> allProducts(){
+             return products;
+        }
+
+        @PostMapping("/products")
+        public void addProduct(Product product){
+                products.add(product);
+        }
 
 }
